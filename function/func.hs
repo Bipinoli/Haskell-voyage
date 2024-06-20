@@ -33,3 +33,12 @@ quicksort (x : xs) =
   let smaller = quicksort [k | k <- xs, k <= x]
       bigger = quicksort [k | k <- xs, k > x]
    in smaller ++ [x] ++ bigger
+
+add :: Integer -> Integer -> Integer
+add x y = x + y
+
+myMap :: (a -> b) -> [a] -> [b]
+myMap f [] = []
+myMap f (x : xs) = f x : myMap f xs
+
+fibonacci = 1 : 1 : [x + y | (x, y) <- zip fibonacci (tail fibonacci)]

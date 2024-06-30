@@ -29,3 +29,9 @@ primes = sieve [2 ..]
 
 sieve :: [Int] -> [Int]
 sieve (x : xs) = x : sieve (filter (\l -> l `mod` x /= 0) xs)
+
+-- $! => strict evaulation (eager evaluation). Disable lazy evulation and evaluate immediately
+
+sumWith :: [Int] -> Int -> Int
+sumWith [] v = v
+sumWith (x : xs) v = sumWith xs $! (x + v)

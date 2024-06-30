@@ -24,3 +24,8 @@ starPrinter n = do
       starPrinter (n - 1)
     else
       return ()
+
+primes = sieve [2 ..]
+
+sieve :: [Int] -> [Int]
+sieve (x : xs) = x : sieve (filter (\l -> l `mod` x /= 0) xs)
